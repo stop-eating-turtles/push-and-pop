@@ -31,3 +31,6 @@ module.exports = (defaults) => {
     scope
   }
 };
+
+// If this script is being run directly, run tests.
+if (!module.parent) require ("./test.js");
