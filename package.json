@@ -1,0 +1,21 @@
+{
+  "name": "push-and-pop",
+  "version": "1.0.0",
+  "author": "stop-eating-turtles",
+  "description": "Scoping the easy way",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "main": "index.js",
+  "keywords": ["scoping", "push", "pop"],
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/stop-eating-turtles/push-and-pop.git"
+  },
+  "license": "MIT",
+  "bugs": {
+    "possibly infinite": true,
+    "url": "https://github.com/stop-eating-turtles/push-and-pop/url"
+  },
+  "homepage": "https://github.com/stop-eating-turtles/push-and-pop"
+}
