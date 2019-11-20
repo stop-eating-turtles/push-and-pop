@@ -1,8 +1,4 @@
-const {
-  scope: settings,
-  push,
-  pop
-} = require ("./index.js") ({
+const {scope: settings, push, pop} = require ("./index.js") ({
   angleMode: "radians"
 });
 
@@ -12,7 +8,7 @@ const cosine = (n) => {
     case "radians": return Math.cos(n);
     default: throw Error("settings.angleMode must be degrees or radians");
   }
-}
+};
 
 const {deepStrictEqual: equal} = require ("assert");
 
