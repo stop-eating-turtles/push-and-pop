@@ -33,14 +33,15 @@ pop();
 ```
 
 ## API
-**require("push-and-pop")(properties = {})**
+
+### `require("push-and-pop")(properties = {})`
 Create an object `p` containing `scope`, `push`, and `pop` The scope is a null object, so it doesn't have methods like `toString`.
 
-**p.scope**
+### `p.scope`
 An object with `properties` from a call to `require("push-and-pop")`.
 
-**p.push(properties = {})**
+### `p.push(properties = {})`
 Add properties to a `scope` that can be `pop`ped off later.
 
-**p.pop(times = 1)**
+### `p.pop(times = 1)`
 Pop a layer off the scope zero or more `times`.
