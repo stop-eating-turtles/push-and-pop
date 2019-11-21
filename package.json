@@ -1,16 +1,34 @@
 {
   "name": "push-and-pop",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "author": "stop-eating-turtles",
-  "description": "Scoping the easy way",
+  "description": "First class scoping the easy way",
   "scripts": {
     "test": "node test.js"
   },
   "main": "index.js",
   "keywords": [
+    "easy",
     "scoping",
     "push",
-    "pop"
+    "and",
+    "pop",
+    "scope",
+    "first class scope",
+    "first-class scope",
+    "first class scoping",
+    "first-class scoping",
+    "only two more variants of this tag, i promise",
+    "first-class-scope",
+    "first-class-scoping",
+    "backtrack",
+    "backtracking",
+    "sike",
+    "first class",
+    "first-class",
+    "why are you reading this, you should be doing something useful with your time",
+    "metaprogramming",
+    "i don't know why this has so many tags i'm just bored i guess"
   ],
   "repository": {
     "type": "git",

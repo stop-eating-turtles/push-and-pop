@@ -1,5 +1,16 @@
-const {scope: settings, push, pop} = require ("./index.js") ({
-  angleMode: "radians"
+const pushAndPop = require ("./index.js");
+
+const {scope: settings, push, pop} = pushAndPop ({
+  angleMode: "radians",
+
+  // This bit would be rather silly in real code. ¯\_(ツ)_/¯
+  set radiansMode (bool) {
+    if (bool) this.angleMode = "radians";
+    else inRadiansMode = bool;
+  },
+  get radiansMode () {
+    return this.angleMode === "radians";
+  }
 });
 
 const cosine = (n) => {
@@ -13,7 +24,15 @@ const cosine = (n) => {
 const {deepStrictEqual: equal} = require ("assert");
 
 equal(cosine(Math.PI * 2), 1);
+
 push({angleMode: "degrees"});
 equal(cosine(360), 1);
-pop();
+
+push({radiansMode: true});
+
+equal(settings.radiansMode, true);
+equal(settings.angleMode, "radians");
+equal(cosine(Math.PI * 2), 1);
+
+pop(2);
 equal(cosine(Math.PI * 2), 1);

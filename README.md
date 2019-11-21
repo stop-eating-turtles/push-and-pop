@@ -8,8 +8,19 @@ $ npm install push-and-pop
 
 ## Usage
 ```js
-const {scope: settings, push, pop} = require("./index.js")({
-  angleMode: "radians"
+const pushAndPop = require ("./index.js");
+
+const {scope: settings, push, pop, backtrackInstructions} = pushAndPop ({
+  angleMode: "radians",
+
+  // This bit would be rather silly in real code. ¯\_(ツ)_/¯
+  set radiansMode (bool) {
+    if (bool) this.angleMode = "radians";
+    else inRadiansMode = bool;
+  },
+  get radiansMode () {
+    return this.angleMode === "radians";
+  }
 });
 
 const cosine = (n) => {
@@ -20,16 +31,16 @@ const cosine = (n) => {
   }
 };
 
-const {deepStrictEqual: equal} = require("assert");
+const {deepStrictEqual: equal} = require ("assert");
 
-cosine(Math.PI * 2); // 1
+cosine(Math.PI * 2) // 1
 
-// Change the settings...
-push({angleMode: "degrees"});
-cosine(360); // 1
+push({radiansMode: false}) // {angleMode: "degrees", radiansMode: false, backtrackInstructions: []}
+cosine(360) // 1
+backtrackInstructions // [{radiansMode: true}]
 
-// ...And change them back.
-pop();
+pop(); // {angleMode: "radians", radiansMode: true}
+cosine(Math.PI * 2) // 1
 ```
 
 ## API
@@ -41,7 +52,10 @@ Create an object `p` containing `scope`, `push`, and `pop` The scope is a null o
 An object with `properties` from a call to `require("push-and-pop")`.
 
 ### `p.push(properties = {})`
-Add properties to a `scope` that can be `pop`ped off later.
+Add properties to a `scope` that can be `pop`ped off later. Returns the new `scope`.
 
 ### `p.pop(times = 1)`
-Pop a layer off the scope zero or more `times`.
+Pop a layer off the scope zero or more `times`. Returns the new `scope`.
+
+### `p.backtrackInstructions`
+An array of objects that show the changes needed to make `scope` go back a layer.
